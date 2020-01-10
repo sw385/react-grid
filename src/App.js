@@ -9,14 +9,17 @@ class App extends Component {
 		const defaultColor = "default-color";
 		const initialRow = 2;
 		const initialCol = 3;
-		const row = Array.from({ length: initialCol }).map(x => defaultColor);
-		const array = Array.from({ length: initialRow }).map(x => row);
+		// const row = Array.from({ length: initialCol }).map(x => defaultColor);
+		const array = Array.from({ length: initialRow }).map(x =>
+			Array.from({ length: initialCol }).map(x => defaultColor)
+		);
 
 		this.state = {
 			defaultColor: defaultColor,
-			currentColor: defaultColor,
+			currentColor: "red-color",
 			colorArray: array
 		};
+		console.log(this.state.colorArray);
 	}
 
 	addRow = () => {
@@ -82,9 +85,46 @@ class App extends Component {
 		});
 	};
 
-	clearAll = () => {};
+	clearAll = () => {
+		let newArr = this.state.colorArray.map(row =>
+			row.map(() => this.state.defaultColor)
+		);
+		this.setState({
+			colorArray: newArr
+		});
+	};
 
-	fillUncolored = () => {};
+	fillUncolored = () => {
+		const { defaultColor, currentColor, colorArray } = this.state;
+		let newArr = colorArray;
+		for (let i = 0; i < colorArray.length; ++i) {
+			for (let j = 0; j < colorArray[0].length; ++j) {
+				if (newArr[i][j] === defaultColor) {
+					newArr[i][j] = currentColor;
+				}
+			}
+		}
+		this.setState({
+			colorArray: newArr
+		});
+	};
+
+	handleClick = (row, col) => {
+		const { currentColor, colorArray } = this.state;
+		let newArr = colorArray;
+		for (let i = 0; i < colorArray.length; ++i) {
+			for (let j = 0; j < colorArray[0].length; ++j) {
+				if (i === row && j === col) {
+					console.log(i, j);
+					newArr[i][j] = currentColor;
+				}
+			}
+		}
+		console.log(newArr);
+		this.setState({
+			colorArray: newArr
+		});
+	};
 
 	render() {
 		return (
@@ -104,12 +144,16 @@ class App extends Component {
 					<option id="red" value="red-color">
 						red
 					</option>
+					<option id="green" value="green-color">
+						green
+					</option>
 				</select>
 
 				<Table
 					numRows={this.state.colorArray.length}
 					numCols={this.state.colorArray[0].length}
 					colorArray={this.state.colorArray}
+					handleClick={this.handleClick}
 				/>
 
 				<button onClick={this.fillAll}>Fill all</button>

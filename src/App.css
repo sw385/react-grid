@@ -5,3 +5,12 @@
 .red-color {
   background-color: red;
 }
+
+.green-color {
+  background-color: green;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+}

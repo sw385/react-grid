@@ -5,7 +5,12 @@ function TableRow(props) {
 	let element = [];
 	for (let i = 0; i < props.numCols; ++i) {
 		element.push(
-			<TableCell row={props.row} col={i} colorArray={props.colorArray} />
+			<TableCell
+				row={props.row}
+				col={i}
+				colorArray={props.colorArray}
+				handleClick={props.handleClick}
+			/>
 		);
 	}
 

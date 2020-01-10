@@ -2,12 +2,14 @@ import React from "react";
 import TableCell from "./TableCell";
 
 function TableRow(props) {
-  let element = [];
-  for (let i = 0; i < props.numCols; ++i) {
-    element.push(<TableCell />);
-  }
+	let element = [];
+	for (let i = 0; i < props.numCols; ++i) {
+		element.push(
+			<TableCell row={props.row} col={i} colorArray={props.colorArray} />
+		);
+	}
 
-  return <tr>{element}</tr>;
+	return <tr>{element}</tr>;
 }
 
 export default TableRow;

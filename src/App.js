@@ -6,7 +6,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		const defaultColor = "#222222";
+		const defaultColor = "default-color";
 		const initialRow = 2;
 		const initialCol = 3;
 		const row = Array.from({ length: initialCol }).map(x => defaultColor);
@@ -14,7 +14,7 @@ class App extends Component {
 
 		this.state = {
 			defaultColor: defaultColor,
-			currentColor: "#222222",
+			currentColor: defaultColor,
 			colorArray: array
 		};
 	}
@@ -73,7 +73,14 @@ class App extends Component {
 		});
 	};
 
-	fillAll = () => {};
+	fillAll = () => {
+		let newArr = this.state.colorArray.map(row =>
+			row.map(() => this.state.currentColor)
+		);
+		this.setState({
+			colorArray: newArr
+		});
+	};
 
 	clearAll = () => {};
 
@@ -91,17 +98,18 @@ class App extends Component {
 					value={this.state.currentColor}
 					onChange={this.updateSelectedColor}
 				>
-					<option id="default" value="#222222">
+					<option id="default" value="default-color">
 						default
 					</option>
-					<option id="algae" value="#FFFFFF">
-						algae
+					<option id="red" value="red-color">
+						red
 					</option>
 				</select>
 
 				<Table
 					numRows={this.state.colorArray.length}
 					numCols={this.state.colorArray[0].length}
+					colorArray={this.state.colorArray}
 				/>
 
 				<button onClick={this.fillAll}>Fill all</button>

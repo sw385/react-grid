@@ -1,7 +1,8 @@
 import React from "react";
 
 function TableCell(props) {
-  return <td>cell</td>;
+	const colorClass = props.colorArray[props.row][props.col];
+	return <td className={colorClass}>cell</td>;
 }
 
 export default TableCell;

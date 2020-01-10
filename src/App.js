@@ -19,21 +19,6 @@ class App extends Component {
 		};
 	}
 
-	// componentDidMount = () => {
-	// 	const initialRow = 2;
-	// 	const initialCol = 3;
-	// 	const row = Array.from({ length: initialCol }).map(
-	// 		x => this.state.defaultColor
-	// 	);
-	// 	const array = Array.from({ length: initialRow }).map(x => row);
-	// 	this.setState(
-	// 		{
-	// 			colorArray: array
-	// 		},
-	// 		() => console.log(this.state.colorArray)
-	// 	);
-	// };
-
 	addRow = () => {
 		const newRow = Array.from({ length: this.state.colorArray[0].length }).map(
 			x => this.state.defaultColor
@@ -69,7 +54,18 @@ class App extends Component {
 		}
 	};
 
-	removeCol = () => {};
+	removeCol = () => {
+		if (this.state.colorArray[0].length > 1) {
+			let newArr = this.state.colorArray.map(row => {
+				return row.slice(0, -1);
+			});
+			this.setState({
+				colorArray: newArr
+			});
+		} else {
+			alert("Minimum cols achieved");
+		}
+	};
 
 	updateSelectedColor = e => {
 		this.setState({
@@ -89,7 +85,7 @@ class App extends Component {
 				<button onClick={this.addRow}>Add a row</button>
 				<button onClick={this.addCol}>Add a col</button>
 				<button onClick={this.removeRow}> Remove a row</button>
-				<button onClick={this.removeCol}> Remove a row</button>
+				<button onClick={this.removeCol}> Remove a col</button>
 
 				<select
 					value={this.state.currentColor}

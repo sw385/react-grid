@@ -11,12 +11,13 @@ class App extends Component {
 		const initialCol = 30;
 		// const row = Array.from({ length: initialCol }).map(x => defaultColor);
 		const colorPalette = ["solitude-color", "sulu-color", "mantis-color", "forest-color", "crusoe-color"];
-		const colorProportion = ["solitude-color", "sulu-color", "mantis-color"];
+		const colorProportion = ["solitude-color", "sulu-color", "mantis-color", "solitude-color", "sulu-color", "mantis-color"];
 		for (let i = 0; i < colorPalette.length; ++i) {
-			for (let j = 0; j <= i; ++j) {
-				colorProportion.push(colorPalette[j])
+			for (let j = 0; j <= i*i; ++j) {
+				colorProportion.push(colorPalette[colorPalette.length - 1 - i])
 			}
 		}
+		console.log(colorProportion);
 
 		const array = Array.from({ length: initialRow }).map(x =>
 			// Array.from({ length: initialCol }).map(x => defaultColor)
@@ -28,7 +29,7 @@ class App extends Component {
 			currentColor: "mantis-color",
 			colorArray: array
 		};
-		console.log(this.state.colorArray);
+		// console.log(this.state.colorArray);
 	}
 
 	addRow = () => {
@@ -39,7 +40,7 @@ class App extends Component {
 			{
 				colorArray: this.state.colorArray.concat([newRow])
 			},
-			() => console.log(this.state.colorArray)
+			// () => console.log(this.state.colorArray)
 		);
 	};
 
@@ -59,7 +60,7 @@ class App extends Component {
 				{
 					colorArray: newArr
 				},
-				() => console.log(this.state.colorArray)
+				// () => console.log(this.state.colorArray)
 			);
 		} else {
 			alert("Minimum rows achieved");
@@ -124,12 +125,12 @@ class App extends Component {
 		for (let i = 0; i < colorArray.length; ++i) {
 			for (let j = 0; j < colorArray[0].length; ++j) {
 				if (i === row && j === col) {
-					console.log(i, j);
+					// console.log(i, j);
 					newArr[i][j] = currentColor;
 				}
 			}
 		}
-		console.log(newArr);
+		// console.log(newArr);
 		this.setState({
 			colorArray: newArr
 		});
@@ -138,6 +139,8 @@ class App extends Component {
 	render() {
 		return (
 			<div>
+				<h1>ReactJS Grid</h1>
+				<h3>by Kun Yu, Darren Zhang, and Samson Wu</h3> 
 				<button onClick={this.addRow}>Add a row</button>
 				<button onClick={this.addCol}>Add a col</button>
 				<button onClick={this.removeRow}> Remove a row</button>
@@ -174,6 +177,8 @@ class App extends Component {
 				<button onClick={this.fillAll}>Fill all</button>
 				<button onClick={this.clearAll}>Clear all</button>
 				<button onClick={this.fillUncolored}>Fill only uncolored</button>
+
+				<h4>Color names by <a href="https://www.color-blindness.com/color-name-hue/">Color Name & Hue</a></h4>
 			</div>
 		);
 	}

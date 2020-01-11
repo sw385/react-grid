@@ -5,7 +5,7 @@ class Debits extends Component{
         super();
     }
     componentDidMount(){
-        document.title = "Debits Page";     
+        document.title = "Debits Page";
     }
 
     render(){

@@ -168,6 +168,21 @@ class App extends Component {
 						<option id="crusoe" value="crusoe-color">
 							Crusoe
 						</option>
+						<option id="blue" value="blue-color">
+							Blue
+						</option>
+						<option id="green" value="green-color">
+							Green
+						</option>
+						<option id="yellow" value="yellow-color">
+							Yellow
+						</option>
+						<option id="orange" value="orange-color">
+							Orange
+						</option>
+						<option id="red" value="red-color">
+							Red
+						</option>
 					</select>
 					<div id="preview" class={this.state.currentColor}></div>
 				</span>

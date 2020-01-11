@@ -19,6 +19,26 @@
   background-color: #196127;
 }
 
+.blue-color {
+  background-color: #00e5ff;
+}
+
+.green-color {
+  background-color: #00ff2a;
+}
+
+.yellow-color {
+  background-color: #e1ff00;
+}
+
+.orange-color {
+  background-color: #ffb200;
+}
+
+.red-color {
+  background-color: #ff4800;
+}
+
 td {
   width: 30px;
   height: 30px;

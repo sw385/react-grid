@@ -1,3 +1,4 @@
+
 import React from "react";
 
 function TableCell(props) {
@@ -7,7 +8,6 @@ function TableCell(props) {
 			className={colorClass}
 			onClick={() => props.handleClick(props.row, props.col)}
 		>
-			cell
 		</td>
 	);
 }

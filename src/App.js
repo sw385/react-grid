@@ -6,19 +6,21 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
+		// initialize an array of shades of gray and green, with more instances of lighter shades
 		const defaultColor = "solitude-color";
 		const initialRow = 7;
 		const initialCol = 30;
 		// const row = Array.from({ length: initialCol }).map(x => defaultColor);
 		const colorPalette = ["solitude-color", "sulu-color", "mantis-color", "forest-color", "crusoe-color"];
-		const colorProportion = ["solitude-color", "sulu-color", "mantis-color", "solitude-color", "sulu-color", "mantis-color"];
+		let colorProportion = ["solitude-color", "sulu-color", "mantis-color", "solitude-color", "sulu-color", "mantis-color"];
 		for (let i = 0; i < colorPalette.length; ++i) {
 			for (let j = 0; j <= i*i; ++j) {
 				colorProportion.push(colorPalette[colorPalette.length - 1 - i])
 			}
 		}
-		console.log(colorProportion);
+		// console.log(colorProportion);
 
+		// from the array of colors in proportion, randomly select colors to populate the inital array
 		const array = Array.from({ length: initialRow }).map(x =>
 			// Array.from({ length: initialCol }).map(x => defaultColor)
 			Array.from({ length: initialCol }).map(x => colorProportion[Math.floor(Math.random() * colorProportion.length)])

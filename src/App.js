@@ -6,17 +6,26 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		const defaultColor = "default-color";
-		const initialRow = 2;
-		const initialCol = 3;
+		const defaultColor = "solitude-color";
+		const initialRow = 7;
+		const initialCol = 30;
 		// const row = Array.from({ length: initialCol }).map(x => defaultColor);
+		const colorPalette = ["solitude-color", "sulu-color", "mantis-color", "forest-color", "crusoe-color"];
+		const colorProportion = ["solitude-color", "sulu-color", "mantis-color"];
+		for (let i = 0; i < colorPalette.length; ++i) {
+			for (let j = 0; j <= i; ++j) {
+				colorProportion.push(colorPalette[j])
+			}
+		}
+
 		const array = Array.from({ length: initialRow }).map(x =>
-			Array.from({ length: initialCol }).map(x => defaultColor)
+			// Array.from({ length: initialCol }).map(x => defaultColor)
+			Array.from({ length: initialCol }).map(x => colorProportion[Math.floor(Math.random() * colorProportion.length)])
 		);
 
 		this.state = {
 			defaultColor: defaultColor,
-			currentColor: "red-color",
+			currentColor: "mantis-color",
 			colorArray: array
 		};
 		console.log(this.state.colorArray);
@@ -138,14 +147,20 @@ class App extends Component {
 					value={this.state.currentColor}
 					onChange={this.updateSelectedColor}
 				>
-					<option id="default" value="default-color">
-						default
+					<option id="solitude" value="solitude-color">
+						Solitude
 					</option>
-					<option id="red" value="red-color">
-						red
+					<option id="sulu" value="sulu-color">
+						Sulu
 					</option>
-					<option id="green" value="green-color">
-						green
+					<option id="mantis" value="mantis-color">
+						Mantis
+					</option>
+					<option id="forest" value="forest-color">
+						Forest
+					</option>
+					<option id="crusoe" value="crusoe-color">
+						Crusoe
 					</option>
 				</select>
 

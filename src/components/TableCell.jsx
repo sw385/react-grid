@@ -7,7 +7,6 @@ function TableCell(props) {
 			className={colorClass}
 			onClick={() => props.handleClick(props.row, props.col)}
 		>
-			cell
 		</td>
 	);
 }

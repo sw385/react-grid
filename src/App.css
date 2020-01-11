@@ -1,16 +1,29 @@
-.default-color {
-  background-color: #61dafb;
+
+.solitude-color {
+  background-color: #ebedf0;
 }
 
-.red-color {
-  background-color: red;
+.sulu-color {
+  background-color: #c6e48b;
 }
 
-.green-color {
-  background-color: green;
+.mantis-color {
+  background-color: #7bc96f;
+}
+
+.forest-color {
+  background-color: #239a3b;
+}
+
+.crusoe-color {
+  background-color: #196127;
 }
 
 td {
-  width: 100px;
-  height: 100px;
+  width: 30px;
+  height: 30px;
+}
+
+table {
+  border-spacing: 7px;
 }

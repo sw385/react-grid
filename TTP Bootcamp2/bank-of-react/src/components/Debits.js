@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-let linkToAPI = 
-
 class Debits extends Component{
     constructor(){
         super();

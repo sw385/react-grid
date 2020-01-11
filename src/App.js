@@ -140,32 +140,37 @@ class App extends Component {
 		return (
 			<div id="parent-container">
 				<h1>ReactJS Grid</h1>
-				<h3>by Kun Yu, Darren Zhang, and Samson Wu</h3> 
-				<button onClick={this.addRow}>Add a row</button>
-				<button onClick={this.addCol}>Add a col</button>
-				<button onClick={this.removeRow}> Remove a row</button>
-				<button onClick={this.removeCol}> Remove a col</button>
+				<h3>by Kun Yu, Darren Zhang, and Samson Wu</h3>
 
-				<select
-					value={this.state.currentColor}
-					onChange={this.updateSelectedColor}
-				>
-					<option id="solitude" value="solitude-color">
-						Solitude
-					</option>
-					<option id="sulu" value="sulu-color">
-						Sulu
-					</option>
-					<option id="mantis" value="mantis-color">
-						Mantis
-					</option>
-					<option id="forest" value="forest-color">
-						Forest
-					</option>
-					<option id="crusoe" value="crusoe-color">
-						Crusoe
-					</option>
-				</select>
+				<span>
+					<button onClick={this.addRow}>Add a row</button>
+					<button onClick={this.removeRow}> Remove a row</button>
+					<button onClick={this.addCol}>Add a column</button>
+					<button onClick={this.removeCol}> Remove a column</button>
+					
+					<label>Select color:</label>
+					<select
+						value={this.state.currentColor}
+						onChange={this.updateSelectedColor}
+					>
+						<option id="solitude" value="solitude-color">
+							Solitude
+						</option>
+						<option id="sulu" value="sulu-color">
+							Sulu
+						</option>
+						<option id="mantis" value="mantis-color">
+							Mantis
+						</option>
+						<option id="forest" value="forest-color">
+							Forest
+						</option>
+						<option id="crusoe" value="crusoe-color">
+							Crusoe
+						</option>
+					</select>
+					<div id="preview" class={this.state.currentColor}></div>
+				</span>
 
 				<Table
 					numRows={this.state.colorArray.length}

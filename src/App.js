@@ -138,7 +138,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
+			<div id="parent-container">
 				<h1>ReactJS Grid</h1>
 				<h3>by Kun Yu, Darren Zhang, and Samson Wu</h3> 
 				<button onClick={this.addRow}>Add a row</button>
